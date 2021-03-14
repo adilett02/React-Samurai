@@ -1,0 +1,10 @@
+/* header */
+.header {
+    grid-area: header;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 40px;
+}

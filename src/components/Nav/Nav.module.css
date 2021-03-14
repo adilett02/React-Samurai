@@ -1,0 +1,11 @@
+/* nav */
+.nav {
+    grid-area: nav;
+    background-color: chocolate;
+}
+.item {
+    padding: 10px;
+}
+.item a.activeLink {
+    color: rgb(27, 17, 167);
+}
