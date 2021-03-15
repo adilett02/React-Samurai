@@ -3,11 +3,16 @@ import classes from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import DialogList from './DialogList/DialogList';
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+    // let dialogsData = [
+    //     { id: 1, name: "Ivan" },
+    //     { id: 2, name: "Petya" },
+    //     { id: 3, name: "Ksyusha" },
+    // ]
     return (
         <div className={classes.dialogs}>
-            <DialogList />
-            <Messages />
+            <DialogList dialogsData={props.dialogsData} />
+            <Messages messageData={props.messageData} />
         </div>
     )
 }

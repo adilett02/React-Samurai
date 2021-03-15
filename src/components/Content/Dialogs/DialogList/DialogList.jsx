@@ -10,14 +10,7 @@ import classes from './DialogList.module.css';
 
 const DialogList = (props) => {
 
-
-    let dialogsData = [
-        { id: 1, name: "Ivan" },
-        { id: 2, name: "Petya" },
-        { id: 3, name: "Ksyusha" },
-    ]
-
-    let dialogsElements = dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
+    let dialogsElements = props.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
 
 
     return (

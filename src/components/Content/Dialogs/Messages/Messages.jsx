@@ -9,14 +9,9 @@ const Message = (props) => {
 
 
 
-const Messages = () => {
-    let messageData = [
-        { id: 1, message: 'Hi' },
-        { id: 2, message: 'How are you?' },
-        { id: 3, message: 'Im fine' },
-    ]
+const Messages = (props) => {
 
-    let messageElements = messageData.map(m => <Message message={m.message} id={m.id} />)
+    let messageElements = props.messageData.map(m => <Message message={m.message} id={m.id} />)
     return (
         <div className={classes.messages}>
             {messageElements}
