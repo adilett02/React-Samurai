@@ -17,11 +17,20 @@ const DialogItem = (props) => {
 
 
 const DialogList = () => {
+
+
+    let dialogsData = [
+        { id: 1, name: "Ivan" },
+        { id: 2, name: "Petya" },
+        { id: 3, name: "Ksyusha" },
+    ]
+
+
     return (
         <div className={classes.dialog__list}>
-            <DialogItem name='Ivan' id='1' />
-            <DialogItem name='Petya' id='2' />
-            <DialogItem name='Ksyusha' id='3' />
+            <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
+            <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
+            <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
         </div>
     )
 }
