@@ -11,8 +11,8 @@ const Dialogs = (props) => {
     // ]
     return (
         <div className={classes.dialogs}>
-            <DialogList dialogsData={props.dialogsData} />
-            <Messages messageData={props.messageData} />
+            <DialogList dialogsData={props.dialogsData.dialogsData} />
+            <Messages messageData={props.messageData.messageData} />
         </div>
     )
 }

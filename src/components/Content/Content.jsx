@@ -7,12 +7,6 @@ import Music from './Music/Music';
 import Settings from './Settings/Settings';
 
 const Content = (props) => {
-
-    // let dialogsData = [
-    //     { id: 1, name: "Ivan" },
-    //     { id: 2, name: "Petya" },
-    //     { id: 3, name: "Ksyusha" },
-    // ]
     return (
         <div className={classes.content}>
             <Route path='/profile' render={() => <Profile postData={props.postData} />} />
