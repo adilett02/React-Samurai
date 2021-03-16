@@ -1,23 +1,33 @@
-// import React from 'react';
+import React from 'react';
 import classes from './Messages.module.css';
 
 const Message = (props) => {
     return (
-        <div>{props.message}</div>
+        <div>
+            <div>{props.message}</div>
+        </div>
+
     )
 }
 
 
 
 const Messages = (props) => {
+    let newMessageElement = React.createRef();
+    
+    let addPost = () => {
+        let text = newMessageElement.current.value;
+        alert(text);
+    }
 
     let messageElements = props.messageData.map(m => <Message message={m.message} id={m.id} />)
     return (
         <div className={classes.messages}>
             {messageElements}
-            {/* <Message message={messageData[0].message} id={messageData[0].id} />
-            <Message message={messageData[1].message} id={messageData[1].id} />
-            <Message message={messageData[2].message} id={messageData[2].id} /> */}
+            <textarea ref={newMessageElement} placeholder="Введите сообщение"></textarea>
+            <button onClick={addPost}>
+                Отправить
+            </button>
         </div>
     )
 }
