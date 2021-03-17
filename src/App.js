@@ -16,7 +16,7 @@ const App = (props) => {
             <div className="app-wrapper">
                 <Header />
                 <Nav />
-                <Content dialogsData={props.state.dialogPage} messageData={props.state.dialogPage} postData={props.state.profilePage.postData} />
+                <Content dialogsData={props.state.dialogPage} messageData={props.state.dialogPage} postData={props.state.profilePage.postData} addPost={props.addPost} />
             </div>
         </BrowserRouter>
 
