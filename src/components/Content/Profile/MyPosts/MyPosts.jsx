@@ -7,11 +7,11 @@ import Post from './Posts/Post';
 
 
 const MyPosts = (props) => {
-    let postElements = props.postData.map(p => <Post message={p.postText} />)
+    let postElements = props.profilePage.postData.map(p => <Post message={p.postText} />)
     return (
         <div className="MyPosts">
             <h4>My Posts</h4>
-            <NewPost addPost={props.addPost} />
+            <NewPost newPostText={props.profilePage.newPostText} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />
             {postElements}
         </div>
     )

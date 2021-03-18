@@ -6,7 +6,8 @@ let state = {
             { id: 2, postText: 'второй пост' },
             { id: 3, postText: 'третий пост' },
             { id: 4, postText: 'четвертый пост' },
-        ]
+        ],
+        newPostText: "Just text"
     },
     dialogPage: {
         messageData: [
@@ -23,15 +24,22 @@ let state = {
 }
 
 
+window.state = state;
 export let addPost = (postMessage) => {
     let newPost = {
         id: 5,
         postText: postMessage
     }
     state.profilePage.postData.push(newPost);
+    state.profilePage.newPostText = '';
     renderEntireTree(state);
 }
 
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    renderEntireTree(state);
+}
 
 
 export default state;

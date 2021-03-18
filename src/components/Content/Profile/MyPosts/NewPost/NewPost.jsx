@@ -2,6 +2,12 @@ import React from 'react';
 import classes from './NewPost.module.css';
 
 const NewPost = (props) => {
+
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }
    
 
     let newPostElement = React.createRef();
@@ -9,11 +15,11 @@ const NewPost = (props) => {
     let addPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text);
-        newPostElement.current.value = "";
+        // props.updateNewPostText('');
     }
     return (
         <div className="new__post">
-            <textarea ref={ newPostElement }></textarea>
+            <textarea onChange={onPostChange} ref={ newPostElement } value={props.newPostText}></textarea>
             <button onClick={ addPost }> Отправить</button>
         </div>
     )

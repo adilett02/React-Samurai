@@ -6,17 +6,12 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 
 const App = (props) => {
-    // let dialogsData = [
-    //     { id: 1, name: "Ivan" },
-    //     { id: 2, name: "Petya" },
-    //     { id: 3, name: "Ksyusha" },
-    // ]
     return (
         <BrowserRouter >
             <div className="app-wrapper">
                 <Header />
                 <Nav />
-                <Content dialogsData={props.state.dialogPage} messageData={props.state.dialogPage} postData={props.state.profilePage.postData} addPost={props.addPost} />
+                <Content state={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
             </div>
         </BrowserRouter>
 
