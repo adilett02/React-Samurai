@@ -1,52 +1,78 @@
-let renderEntireTree = () => { }
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-
-let state = {
-    profilePage: {
-        postData: [
-            { id: 1, postText: 'первый пост' },
-            { id: 2, postText: 'второй пост' },
-            { id: 3, postText: 'третий пост' },
-            { id: 4, postText: 'четвертый пост' },
-        ],
-        newPostText: "Just text"
+let store = {
+    _state: {
+        profilePage: {
+            postData: [
+                { id: 1, postText: 'первый пост' },
+                { id: 2, postText: 'второй пост' },
+                { id: 3, postText: 'третий пост' },
+                { id: 4, postText: 'четвертый пост' },
+            ],
+            newPostText: "Just text"
+        },
+        dialogPage: {
+            messageData: [
+                { id: 1, message: 'Hi' },
+                { id: 2, message: 'How are you?' },
+                { id: 3, message: 'Im fine' },
+            ],
+            dialogsData: [
+                { id: 1, name: "Ivan" },
+                { id: 2, name: "Petya" },
+                { id: 3, name: "Ksyusha" },
+            ],
+        }
     },
-    dialogPage: {
-        messageData: [
-            { id: 1, message: 'Hi' },
-            { id: 2, message: 'How are you?' },
-            { id: 3, message: 'Im fine' },
-        ],
-        dialogsData: [
-            { id: 1, name: "Ivan" },
-            { id: 2, name: "Petya" },
-            { id: 3, name: "Ksyusha" },
-        ],
+    _callSubscriber() { },
+
+
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+    //Методы
+    addPost() {
+        let newPost = {
+            id: 5,
+            postText: this._state.profilePage.newPostText,
+        }
+        this._state.profilePage.postData.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
+    },
+    updateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
+    },
+
+    dispatch(action) {
+        if (action.type === ADD_POST) {
+            let newPost = {
+                id: 5,
+                postText: this._state.profilePage.newPostText,
+            }
+            this._state.profilePage.postData.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
     }
+
+
 }
 
 
-window.state = state;
-export let addPost = (postMessage) => {
-    let newPost = {
-        id: 5,
-        postText: postMessage
-    }
-    state.profilePage.postData.push(newPost);
-    state.profilePage.newPostText = '';
-    renderEntireTree(state);
-}
 
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+window.store = store;
 
-export let updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText;
-    renderEntireTree(state);
-}
-
-export const subscribe = (observer) => {
-    renderEntireTree = observer;
-}
-
-
-export default state;
+export default store;
 
