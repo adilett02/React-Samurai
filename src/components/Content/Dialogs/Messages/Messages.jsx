@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Messages.module.css';
-import {sendMessageActionCreator, updateNewMessageTextActionCreator} from '../../../../redux/state';
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../../../redux/dialogReducer';
 
 const Message = (props) => {
     return (
@@ -15,7 +15,7 @@ const Message = (props) => {
 
 const Messages = (props) => {
     let newMessageElement = React.createRef();
-    
+
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
         props.dispatch(updateNewMessageTextActionCreator(text));
