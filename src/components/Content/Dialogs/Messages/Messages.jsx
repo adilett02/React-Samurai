@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Messages.module.css';
+import {sendMessageActionCreator, updateNewMessageTextActionCreator} from '../../../../redux/state';
 
 const Message = (props) => {
     return (
@@ -15,17 +16,23 @@ const Message = (props) => {
 const Messages = (props) => {
     let newMessageElement = React.createRef();
     
-    let addPost = () => {
+    let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        alert(text);
+        props.dispatch(updateNewMessageTextActionCreator(text));
     }
 
-    let messageElements = props.messageData.map(m => <Message message={m.message} id={m.id} />)
+
+    let sendMessage = () => {
+        // let text = newMessageElement.current.value;
+        props.dispatch(sendMessageActionCreator());
+    }
+
+    let messageElements = props.dialogPage.messageData.map(m => <Message message={m.message} id={m.id} />)
     return (
         <div className={classes.messages}>
             {messageElements}
-            <textarea ref={newMessageElement} placeholder="Введите сообщение"></textarea>
-            <button onClick={addPost}>
+            <textarea onChange={onMessageChange} value={props.dialogPage.newMessageText} ref={newMessageElement} placeholder="Введите сообщение"></textarea>
+            <button onClick={sendMessage}>
                 Отправить
             </button>
         </div>

@@ -14,8 +14,6 @@ const App = (props) => {
                 <Content state={props.state} dispatch={props.dispatch} />
             </div>
         </BrowserRouter>
-
-
     );
 }
 
