@@ -1,17 +1,19 @@
 // import React from 'react';
 import classes from './MyPosts.module.css';
 import NewPost from './NewPost/NewPost';
+import NewPostContainer from './NewPost/NewPostContainer';
 import Post from './Posts/Post';
 
 
 
 
 const MyPosts = (props) => {
-    let postElements = props.profilePage.postData.map(p => <Post message={p.postText} />)
+    let state = props.store.getState();
+    let postElements = state.profilePage.postData.map(p => <Post message={p.postText} />)
     return (
         <div className="MyPosts">
             <h4>My Posts</h4>
-            <NewPost newPostText={props.profilePage.newPostText} dispatch={props.dispatch} />
+            <NewPostContainer store={props.store} />
             {postElements}
         </div>
     )

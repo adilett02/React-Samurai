@@ -1,9 +1,10 @@
 // import React from 'react';
 import classes from './Dialogs.module.css';
-import Messages from './Messages/Messages';
 import DialogList from './DialogList/DialogList';
+import MessagesContainer from './Messages/MessagesContainer';
 
 const Dialogs = (props) => {
+    let state = props.store.getState();
     // let dialogsData = [
     //     { id: 1, name: "Ivan" },
     //     { id: 2, name: "Petya" },
@@ -11,8 +12,8 @@ const Dialogs = (props) => {
     // ]
     return (
         <div className={classes.dialogs}>
-            <DialogList dialogsData={props.dialogPage.dialogsData} />
-            <Messages dialogPage={props.dialogPage} dispatch={props.dispatch} />
+            <DialogList dialogsData={state.dialogPage.dialogsData} />
+            <MessagesContainer store = {props.store} />
         </div>
     )
 }
