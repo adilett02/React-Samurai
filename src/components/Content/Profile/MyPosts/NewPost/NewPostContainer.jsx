@@ -13,12 +13,9 @@ const NewPostContainer = (props) => {
       {(store) => {
         let state = store.getState();
 
-        let onPostChange = () => {
-          let text = newPostElement.current.value;
+        let onPostChange = (text) => {
           store.dispatch(updateNewPostTextActionCreator(text));
         };
-
-        let newPostElement = React.createRef();
 
         let addPost = () => {
           store.dispatch(addPostActionCreator());
@@ -28,7 +25,6 @@ const NewPostContainer = (props) => {
           <NewPost
             addPost={addPost}
             onPostChange={onPostChange}
-            newPostElement={newPostElement}
             newPostText={state.profilePage.newPostText}
           />
         );

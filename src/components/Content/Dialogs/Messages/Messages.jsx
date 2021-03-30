@@ -14,12 +14,23 @@ const Message = (props) => {
 
 const Messages = (props) => {
 
-    let messageElements = props.state.dialogPage.messageData.map(m => <Message message={m.message} id={m.id} />)
+    let newMessageElement = React.createRef();
+
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        props.onMessageChange(text)
+    };
+
+    let sendMessage = () => {
+        props.sendMessage();
+    };
+
+    let messageElements = props.dialogPage.messageData.map(m => <Message message={m.message} id={m.id} />)
     return (
         <div className={classes.messages}>
             {messageElements}
-            <textarea onChange={props.onMessageChange} value={props.state.dialogPage.newMessageText} ref={props.newMessageElement} placeholder="Введите сообщение"></textarea>
-            <button onClick={props.sendMessage}>
+            <textarea onChange={onMessageChange} value={props.dialogPage.newMessageText} ref={newMessageElement} placeholder="Введите сообщение"></textarea>
+            <button onClick={sendMessage}>
                 Отправить
             </button>
         </div>

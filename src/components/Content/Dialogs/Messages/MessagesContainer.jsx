@@ -11,10 +11,8 @@ const MessagesContainer = (props) => {
   return (
     <StoreContext.Consumer>
       {(store) => {
-        let newMessageElement = React.createRef();
 
-        let onMessageChange = () => {
-          let text = newMessageElement.current.value;
+        let onMessageChange = (text) => {
           store.dispatch(updateNewMessageTextActionCreator(text));
         };
 
@@ -26,8 +24,7 @@ const MessagesContainer = (props) => {
           <Messages
             onMessageChange={onMessageChange}
             sendMessage={sendMessage}
-            newMessageElement={newMessageElement}
-            state={store.getState()}
+            dialogPage={store.getState().dialogPage}
           />
         );
       }}
