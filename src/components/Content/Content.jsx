@@ -7,15 +7,15 @@ import Music from './Music/Music';
 import Settings from './Settings/Settings';
 
 const Content = (props) => {
-    return (
-        <div className={classes.content}>
-            <Route path='/profile' render={() => <Profile store={props.store} />} />
-            <Route path='/dialogs' render={() => <Dialogs store={props.store} />} />
-            <Route path='/news' render={() => <News />} />
-            <Route path='/music' render={() => <Music />} />
-            <Route path='/settings' render={() => <Settings />} />
-        </div>
-    );
-}
+  return (
+    <div className={classes.content}>
+      <Route path="/profile" render={() => <Profile store={props.store} />} />
+      <Route path="/dialogs" render={() => <Dialogs store={props.store} />} />
+      <Route path="/news" render={() => <News />} />
+      <Route path="/music" render={() => <Music />} />
+      <Route path="/settings" render={() => <Settings />} />
+    </div>
+  );
+};
 
 export default Content;
