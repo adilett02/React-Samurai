@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './redux/reduxStore';
-import StoreContext, { Provider } from './StoreContext';
+import { Provider } from 'react-redux';
 
 let renderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <Provider store={store}>
+      <Provider>
         <App store={store} />
       </Provider>
     </React.StrictMode>,

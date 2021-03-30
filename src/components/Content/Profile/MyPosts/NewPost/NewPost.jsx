@@ -1,14 +1,12 @@
 import React from 'react';
 import classes from './NewPost.module.css';
-// import { addPostActionCreator, updateNewPostTextActionCreator } from './../../../../../redux/profileReducer';
+import { addPostActionCreator, updateNewPostTextActionCreator } from './../../../../../redux/profileReducer';
 import NewPostContainer from './NewPostContainer'
 
 
 
 
 const NewPost = (props) => {
-
-
 
     let onPostChange = () => {
         let text = newPostElement.current.value;

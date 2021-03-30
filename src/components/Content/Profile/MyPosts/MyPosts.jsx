@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import classes from './MyPosts.module.css';
 import NewPost from './NewPost/NewPost';
 import NewPostContainer from './NewPost/NewPostContainer';
@@ -10,7 +10,7 @@ const MyPosts = (props) => {
   return (
     <div className="MyPosts">
       <h4>My Posts</h4>
-      <NewPostContainer store={props.store} />
+      <NewPostContainer />
       {postElements}
     </div>
   );
