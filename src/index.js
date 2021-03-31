@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 let renderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <Provider>
+      <Provider store={store}>
         <App store={store} />
       </Provider>
     </React.StrictMode>,

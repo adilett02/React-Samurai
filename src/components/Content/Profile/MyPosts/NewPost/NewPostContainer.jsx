@@ -33,27 +33,21 @@ import { connect } from 'react-redux';
 //   );
 // };
 
-
-
 let mapStateToProps = (state) => {
   return {
-    newPostText: state.profilePage.newPostText
-  }
-}
+    newPostText: state.profilePage.newPostText,
+  };
+};
 let mapDispatchToProps = (dispatch) => {
-
   return {
     onPostChange: (text) => {
       dispatch(updateNewPostTextActionCreator(text));
     },
     addPost: () => {
       dispatch(addPostActionCreator());
-    }
-  }
-}
-
+    },
+  };
+};
 const NewPostContainer = connect(mapStateToProps, mapDispatchToProps)(NewPost);
-
-
 
 export default NewPostContainer;

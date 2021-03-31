@@ -6,20 +6,15 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 
 const App = (props) => {
-    return (
-        <BrowserRouter >
-            <div className="app-wrapper">
-                <Header />
-                <Nav />
-                <Content store={props.store} />
-            </div>
-        </BrowserRouter>
-    );
-}
-
-
-
-
-
+  return (
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Header />
+        <Nav />
+        <Content store={props.store} />
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;
