@@ -6,7 +6,9 @@ import Post from './Posts/Post';
 
 const MyPosts = (props) => {
   let state = props.store.getState();
-  let postElements = state.profilePage.postData.map((p) => <Post message={p.postText} />);
+  let postElements = state.profilePage.postData.map((p) => (
+    <Post message={p.postText} key={p.id} />
+  ));
   return (
     <div className="MyPosts">
       <h4>My Posts</h4>
