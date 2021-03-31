@@ -11,3 +11,25 @@ a {
   text-decoration: none;
   color: #fff;
 }
+
+.users{
+  display: flex;
+  padding: 20px;
+}
+.avatarFollow img{
+  width: 80px;
+}
+.avatarFollow button{
+  display: block;
+}
+
+.userInfo{
+  width: 100%;
+  margin-left: 50px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  border: 1px solid rgb(56, 94, 81);
+  padding: 20px;
+  border-radius: 20px;
+}
