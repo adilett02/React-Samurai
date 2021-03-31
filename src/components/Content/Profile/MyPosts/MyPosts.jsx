@@ -1,18 +1,20 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import NewPost from './NewPost/NewPost';
-import NewPostContainer from './NewPost/NewPostContainer';
 import Post from './Posts/Post';
 
 const MyPosts = (props) => {
-  let state = props.store.getState();
-  let postElements = state.profilePage.postData.map((p) => (
+  let postElements = props.profilePage.postData.map((p) => (
     <Post message={p.postText} key={p.id} />
   ));
   return (
     <div className="MyPosts">
       <h4>My Posts</h4>
-      <NewPostContainer />
+      <NewPost
+        onPostChange={props.onPostChange}
+        addPost={props.addPost}
+        newPostText={props.profilePage.newPostText}
+      />
       {postElements}
     </div>
   );

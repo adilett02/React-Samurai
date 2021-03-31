@@ -1,15 +1,14 @@
 import React from 'react';
-import classes from './NewPost.module.css';
+import { connect } from 'react-redux';
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from './../../../../../redux/profileReducer';
-import NewPost from './NewPost';
-import { connect } from 'react-redux';
+} from '../../../../redux/profileReducer';
+import MyPosts from './MyPosts';
 
 let mapStateToProps = (state) => {
   return {
-    newPostText: state.profilePage.newPostText,
+    profilePage: state.profilePage,
   };
 };
 let mapDispatchToProps = (dispatch) => {
@@ -22,6 +21,6 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
-const NewPostContainer = connect(mapStateToProps, mapDispatchToProps)(NewPost);
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
-export default NewPostContainer;
+export default MyPostsContainer;
