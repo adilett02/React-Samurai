@@ -3,45 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-  userData: [
-    {
-      id: 1,
-      followed: true,
-      userPhoto: 'https://www.shareicon.net/data/512x512/2016/05/24/770137_man_512x512.png',
-      userName: 'Димыч',
-      userStatus: 'В отношениях...',
-      userCountry: 'Russia',
-      userCity: 'Mosscow',
-    },
-    {
-      id: 2,
-      followed: false,
-      userPhoto: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png',
-      userName: 'Ксюша',
-      userStatus: 'В отношениях...',
-      userCountry: 'Russia',
-      userCity: 'Mosscow',
-    },
-    {
-      id: 3,
-      followed: true,
-      userPhoto: 'https://www.shareicon.net/data/512x512/2016/05/24/770137_man_512x512.png',
-      userName: 'Алексей',
-      userStatus: 'В отношениях...',
-      userCountry: 'Russia',
-      userCity: 'Mosscow',
-    },
-    {
-      id: 4,
-      followed: false,
-      userPhoto: 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png',
-      userName: 'Наташа',
-      userStatus: 'В отношениях...',
-      userCountry: 'Russia',
-      userCity: 'Mosscow',
-    },
-  ],
-  //   newPostText: 'Just text',
+  userData: [],
 };
 
 let userReducer = (state = initialState, action) => {
