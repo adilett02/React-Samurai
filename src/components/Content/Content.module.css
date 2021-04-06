@@ -1,5 +1,9 @@
 /* content */
 .content {
-    grid-area: content;
-    background-color: olivedrab;
+  grid-area: content;
+  background-color: olivedrab;
+}
+.selectedPage {
+  color: red;
+  font-weight: bold;
 }
