@@ -1,16 +1,19 @@
 // import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Preloader from '../../../common/Preloader/Preloader';
 import classes from './Me.module.css';
 
-const Me = () => {
+const Me = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
   return (
     <div className={classes.user}>
       <div className={classes.avatar}>
-        <img
-          src="https://occ-0-1068-1723.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABYFFMybV41gNw3DSp3wH_ZiUFt49FdLBeaSZMk0iWKrLG513Bphi20AylfWPjkbgkoZP3P6DdNturF_Bt2ufQYb4Ap6Gps_jpXgHcNH3bI0ZEb8W.jpg?r=5ab"
-          alt=""
-        />
+        <img src={props.profile.photos.large} alt="" />
       </div>
-      <div className="description">description about user</div>
+      <div className="description">{props.profile.aboutMe}</div>
+      <div>Ищет работу: {props.profile.lookingForAJob === true ? 'Да' : 'Нет'} </div>
     </div>
   );
 };

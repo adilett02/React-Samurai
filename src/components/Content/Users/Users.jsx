@@ -2,6 +2,7 @@ import React from 'react';
 import classes from '../../Content/Content.module.css';
 import userPhoto from '../../../assets/images/user.png';
 import Preloader from '../../common/Preloader/Preloader';
+import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -28,7 +29,10 @@ let Users = (props) => {
         return (
           <div key={u.id} className="users">
             <div className="avatarFollow">
-              <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" />
+              <NavLink to={'/profile/' + u.id}>
+                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" />
+              </NavLink>
+
               {u.followed ? (
                 <button
                   onClick={() => {
@@ -48,7 +52,7 @@ let Users = (props) => {
             <div className="userInfo">
               <div>
                 <div> {u.name} </div>
-                <div> {u.userStatus} </div>
+                <div> {u.status} </div>
               </div>
               <div>
                 <div>{u.userCountry}</div>
