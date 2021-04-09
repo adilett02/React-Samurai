@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Content from './components/Content/Content';
-import Header from './components/Header/Header';
+import HeaderConatiner from './components/Header/HeaderContainer';
 import Nav from './components/Nav/Nav';
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <Header />
+        <HeaderConatiner />
         <Nav />
         <Content store={props.store} />
       </div>
