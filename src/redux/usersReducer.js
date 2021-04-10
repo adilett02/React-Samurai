@@ -9,7 +9,7 @@ let initialState = {
   userData: [],
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 2275,
+  currentPage: 2284,
   isFetching: true,
 };
 

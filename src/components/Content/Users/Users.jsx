@@ -3,6 +3,7 @@ import classes from '../../Content/Content.module.css';
 import userPhoto from '../../../assets/images/user.png';
 import Preloader from '../../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -36,18 +37,42 @@ let Users = (props) => {
               {u.followed ? (
                 <button
                   onClick={() => {
-                    props.unfollow(u.id);
-                  }}>
-                  follow
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    props.follow(u.id);
+                    axios
+                      .delete(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                        withCredentials: true,
+                        headers: {
+                          "API-KEY": "6db8aa30-ad68-459c-af84-8ce70ca641e9"
+                        }
+                      })
+                      .then((response) => {
+                        if (response.data.resultCode === 0) {
+                          props.unfollow(u.id);
+                        }
+                      });
                   }}>
                   unfollow
                 </button>
-              )}
+              ) : (
+                  <button
+                    onClick={() => {
+                      axios
+                        .post(
+                          `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "6db8aa30-ad68-459c-af84-8ce70ca641e9"
+                          }
+                        })
+                        .then((response) => {
+                          if (response.data.resultCode === 0) {
+                            props.follow(u.id);
+                          }
+                        });
+                    }}>
+                    follow
+                  </button>
+                )}
             </div>
             <div className="userInfo">
               <div>
