@@ -22,4 +22,12 @@ export const usersAPI = {
   unfollow(userId) {
     return instance.delete(`follow/${userId}`);
   },
+
+  auth() {
+    return instance.get(`auth/me`);
+  },
+
+  setProfile(userId) {
+    return instance.get(`profile/${userId}`);
+  },
 };
