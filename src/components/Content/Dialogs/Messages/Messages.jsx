@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import classes from './Messages.module.css';
 
 const Message = (props) => {
@@ -24,6 +25,9 @@ const Messages = (props) => {
   let messageElements = props.dialogPage.messageData.map((m) => (
     <Message message={m.message} id={m.id} key={m.id} />
   ));
+
+
+  if (!props.isAuth) return <Redirect to={'/login'} />
   return (
     <div className={classes.messages}>
       {messageElements}
