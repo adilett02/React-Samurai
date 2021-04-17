@@ -6,11 +6,11 @@ import {
 } from '../../../../redux/dialogReducer';
 import Messages from './Messages';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../../../hoc/withAuthRedirect';
 
 let mapStateToProps = (state) => {
   return {
     dialogPage: state.dialogPage,
-    isAuth: state.auth.isAuth
   };
 };
 let mapDispatchToProps = (dispatch) => {
@@ -23,7 +23,9 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
+let AuthRedirectComponent = withAuthRedirect(Messages)
 
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
+
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
 export default MessagesContainer;

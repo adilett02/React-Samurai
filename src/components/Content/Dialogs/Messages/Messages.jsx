@@ -27,7 +27,7 @@ const Messages = (props) => {
   ));
 
 
-  if (!props.isAuth) return <Redirect to={'/login'} />
+
   return (
     <div className={classes.messages}>
       {messageElements}
