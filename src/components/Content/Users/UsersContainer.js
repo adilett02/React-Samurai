@@ -4,6 +4,7 @@ import { follow, unfollow, toggleFollowingProgress, getUsers } from '../../../re
 import * as axios from 'axios';
 import Users from './Users';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
   debugger;
@@ -46,10 +47,9 @@ let mapStateToProps = (state) => {
 };
 
 
-let AuthRedirectComponent = withAuthRedirect(UsersContainer)
-export default connect(mapStateToProps, {
+export default compose(connect(mapStateToProps, {
   follow,
   unfollow,
   toggleFollowingProgress,
   getUsers,
-})(AuthRedirectComponent);
+}))(UsersContainer)
